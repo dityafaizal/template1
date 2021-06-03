@@ -1,0 +1,806 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  
+  <style>
+    @font-face {
+        font-family: futura-md;
+        src: url(Futura/futura\ medium\ bt.ttf);
+    }
+    @font-face {
+        font-family: futura-condensed-md;
+        src: url(Futura/futura\ medium\ condensed\ bt.ttf);
+    }
+    @font-face {
+        font-family: futura-bold;
+        src: url(Futura/Futura\ Bold\ font.ttf);
+    }
+    @font-face {
+        font-family: futura-extra-bold;
+        src: url(Futura/Futura\ Extra\ Black\ font.ttf);
+    }
+    @font-face {
+        font-family: DancingScript;
+        src: url(Dancing_Script/DancingScript-VariableFont_wght.ttf);
+    }
+    @font-face {
+        font-family: DINBlackAlternate;
+        src: url(din/DINBlackAlternate.ttf);
+    }
+    @font-face {
+        font-family: SEGOEUI;
+        src: url(Segoe-UI-Font/SEGOEUI.TTF);
+    }
+
+    .futura-md {
+        font-family: futura-md;
+    }
+    .futura-condensed-md {
+        font-family: futura-condensed-md;
+    }
+    .futura-bold {
+        font-family: futura-bold;
+    }
+    .futura-extra-bold {
+        font-family: futura-extra-bold;
+    }
+    .DancingScript {
+        font-family: DancingScript;
+    }
+    .DINBlackAlternate {
+        font-family: DINBlackAlternate;
+    }
+    .SEGOEUI {
+        font-family: SEGOEUI;
+    }
+
+    body, html {
+        overflow-x: hidden;
+    }
+    body {
+        position: relative;
+    }
+    .cl-cream {
+        background-color: #FCF8F0;
+    }
+    .cl-dark-cream {
+        color: #7B4F06;
+    }
+    .ovale--md {
+        width: 800px;
+        height: 470px;
+        background: #FCF8F0;
+        border-radius: 400px / 200px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, 0);
+    }
+    .ovale--xl {
+        width: 800px;
+        height: 550px;
+        background: #FCF8F0;
+        border-radius: 400px / 200px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, 0);
+    }
+    .ovale--big {
+        width: 800px;
+        height: 750px;
+        background: #FCF8F0;
+        border-radius: 400px / 200px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, 0);
+    }
+    .ovale--2big {
+        width: 800px;
+        height: 1030px;
+        background: #FCF8F0;
+        border-radius: 400px / 200px;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, 0);
+    }
+    .clip-ellipse {
+        clip-path: ellipse(428px 200px at center);
+    }
+    .animateUpDown {
+        animation: MoveUpDown 1.2s ease-in infinite;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    #jsTimer {
+        display: flex;
+    }
+    #jsTimer > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+    #jsTimer span {
+        font-family: futura-condensed-md;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .rect {
+        position:relative;
+    }
+    .circle--half {
+        display:block;
+        width: 100px;
+        height: 50px;
+        top:-50px;
+        left:0;
+        overflow:hidden;
+        position:absolute;
+    }
+    .circle--half:after {
+        content:'';
+        width: 100px;
+        height: 100px;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100px;
+        border-radius: 100px;
+        background:rgba(0,0,0,0);
+        position:absolute;
+        top:-100px;
+        left:-40px;
+        border:40px solid rgba(0,0,0,0.5);
+    }
+
+    .mySlides, .mySlides2 {display: none}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+        z-index: -2;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot, .dot2 {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover, .dot2:hover {
+        background-color: #717171;
+    }
+
+    .js-scroll {
+        opacity: 0;
+        transition: opacity 500ms;
+    }
+
+    .js-scroll.scrolled {
+        opacity: 1;
+    }
+
+    .scrolled.fade-in-bottom {
+        animation: fade-in-bottom 1s ease-in-out both;
+    }
+
+    /* Fading animation */
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+    }
+
+    @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+    }
+    @keyframes MoveUpDown {
+        0%, 100% {
+            bottom: 0;
+        }
+        50% {
+            bottom: 10px;
+        }
+    }
+    @keyframes fade-in-bottom {
+        0% {
+            -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div class="h-screen pt-40 flex items-center flex-col relative">
+        <img src="MaskGroup2.png" class="absolute top-0" style="z-index:-1;" alt="">
+        <div class="text-center" style="color: #fafafa;">
+            <h5 class="text-lg futura-md">The Wedding of</h5>
+            <h3 class="text-5xl DancingScript">Evika & Andrian</h3>
+        </div>
+        <div class="mt-20 text-center">
+            <h5 class="text-lg futura-md" style="color:#fafafa">Kepada</h5>
+            <h5 class="text-lg futura-md" style="color:#fafafa">Yth. Bpk / Ibu / Sdra / i</h5>
+            <h5 class="text-lg futura-md" style="color:#fafafa">{{ name }}</h5>
+            <h5 class="text-lg futura-md" style="color:#fafafa">{{ address }}</h5>
+        </div>
+        <div class="mt-72 w-12 relative">
+            <img src="iconmonstr-arrow-31.svg" class="animateUpDown" alt="arrow down icon" style="transform: rotate(90deg);">
+        </div>
+      </div>
+      <div class="h-screen flex justify-between items-center flex-col relative">
+          <div class="ovale--md"></div>
+          <div class="pt-20 text-center w-9/12 js-scroll fade-in-bottom">
+            <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalanualaikum Warrahmatullah Wabarakatuh</h3>
+            <h3 class="p-4 text-lg futura-md" style="color:#7B4F06">Bismillahirramanirrahim</h3>
+            <p class="text-sm futura-md" style="color:#7B4F06">"Dan diantara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenang dan tentram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir." (QS:. Ar-Rum: 21)</p>
+          </div>
+
+          <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+            </div>
+            
+            <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+            
+          </div>
+          <br>
+        
+          <div class="absolute bottom-20" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+          </div>
+          <span class="circle--half"></span>
+      </div>
+      <div>
+          <div class="py-12 text-center flex justify-center relative">
+            <div class="h-1 w-12 absolute top-0 left-0" style="background-color: #C7CEBE;"></div>
+            <p class="w-9/12 js-scroll fade-in-bottom">
+                Dengan memohon ridho dan rahmat Allah Subhanahuwataala izinkan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri dan memberikan doa restu pada pernikahan kami :
+            </p>
+            <div class="h-1 w-12 absolute bottom-0 right-0" style="background-color: #E1D5BE;"></div>
+          </div>
+          <div class="mt-8 relative">
+            <div class="ovale--big"></div>
+            <div class="pt-14 flex items-center flex-col js-scroll fade-in-bottom">
+                <img src="https://dummyimage.com/300x300/000/fff.jpg" class="rounded-full w-80 h-80 mb-6" alt="">
+                <h5 class="text-sm tracking-widest SEGOEUI">Evika Rana Getavani</h5>
+                <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Evika</h1>
+                <h5 class="mb-2 text-sm SEGOEUI">Putri pertama dari</h5>
+                <div class="w-7/12 text-center text-sm SEGOEUI">
+                  <h5>Bpk. Kolonel Arh. Tri Wahjudjianto</h5>
+                  <h5>&</h5>
+                  <h5>Ibu Indah Mustika</h5>
+                </div>
+                <div class="rounded-full py-2 px-5 mt-8 flex justify-between items-center" style="background-color: rgba(106, 170, 234, .15);">
+                    <img src="iconmonstr-instagram-14.svg" width="16" class="pt-0.5" alt="iconmonstr-instagram-14.svg">
+                    <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">evikarana</span>
+                </div>
+            </div>
+            <div class="mt-6 flex items-center flex-col js-scroll fade-in-bottom">
+              <img src="https://dummyimage.com/300x300/000/fff.jpg" class="rounded-full w-80 h-80 mb-6" alt="">
+              <h5 class="text-sm tracking-widest SEGOEUI">Andrian Najib Fayruz</h5>
+              <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Andrian</h1>
+              <h5 class="mb-2 text-sm SEGOEUI">Putra kedua dari</h5>
+              <div class="w-7/12 text-center text-sm SEGOEUI">
+                <h5>Bpk. H. Bambang Maryanto (Alm)</h5>
+                <h5>&</h5>
+                <h5>Ibu Hj. Sri Khunfa'ah</h5>
+              </div>
+              <div class="rounded-full py-2 px-5 mt-8 flex justify-between items-center" style="background-color: rgba(106, 170, 234, .15);">
+                <img src="iconmonstr-instagram-14.svg" width="16" class="pt-0.5" alt="iconmonstr-instagram-14.svg">
+                <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">andrian89</span>
+            </div>
+            </div>
+          </div>
+        <div class="mt-16 relative">
+            <div class="ovale--2big"></div>
+            <div class="flex items-center flex-col">
+                <div class="w-9/12 text-center">
+                    <p class="pt-16 cl-dark-cream SEGOEUI js-scroll fade-in-bottom">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir di acara Resepsi dan memberikan doa restu kepada kami.
+                    </p>
+                    <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
+                        <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
+                        <h1 class="text-3xl cl-dark-cream DancingScript">Akad Nikah</h1>
+                        <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
+                        <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
+                        <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
+                        <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
+                        <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
+                            <img src="your-location.svg" width="18" alt="map icon">
+                            <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
+                        </div>
+                    </div>
+                    <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
+                        <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
+                        <h1 class="text-3xl cl-dark-cream DancingScript">Resepsi</h1>
+                        <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
+                        <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
+                        <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
+                        <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
+                        <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
+                            <img src="your-location.svg" width="18" alt="map icon">
+                            <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-36 flex items-center flex-col">
+            <div class="w-9/12 text-center js-scroll fade-in-bottom">
+                <p class="cl-dark-cream SEGOEUI">
+                    Prosesi Akad hanya dihadiri keluarga dan kerabat terdekat. <br><br> Bagi yang berhalangan hadir dapat menyaksikan jalannya prosesi akad dan resepsi melalui live streaming dengan alamat tautan sebagai berikut:
+                </p>
+                <div class="rounded-full py-2 px-8 mt-16" style="background-color: rgba(106, 170, 234, .15);">
+                    <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);">https://linktr.ee/WeddingDisaNajib</a>
+                </div>
+            </div>
+        </div>
+        <div class="my-16 flex items-center flex-col relative" style="z-index: 2;">
+            <img src="MaskGroup2.png" class="absolute clip-ellipse top-0" style="width:428px;height:428px;z-index: -1;" alt="">
+            <div class="mt-28 text-center">
+                <h1 class="text-3xl SEGOEUI" style="color:#F9F3E7;">Counting The Day</h1>
+                <div class="rounded-full py-6 px-12 mt-8" style="background-color: rgba(123, 79, 6, .5);">
+                    <div>
+                        <div id="jsTimer" class="text-3xl futura-extra-bold" style="color:#fff;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="z-index: -1;">
+            <div class="ovale--xl"></div>
+            <div class="flex items-center flex-col js-scroll fade-in-bottom">
+                <h1 class="pt-20 text-5xl cl-dark-cream DancingScript">RSVP</h1>
+                <h5 class="py-4 text-lg">Yth. Bpk/Ibu/Sdra/i</h5>
+                <h3 class="text-lg">{{ name }}</h3>
+                <p class="py-4 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
+                <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
+                <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
+                <div class="rounded-full py-2 px-8 mb-4 w-9/12 text-center cursor-pointer" style="color:#F9F3E7; background-color: #6A4509">
+                    Saya Akan Hadir
+                </div>
+                <div class="rounded-full py-2 px-8 w-9/12 text-center cursor-pointer" style="color: #B99E70; border: 1px solid #B99E70;">
+                    Maaf Tidak Dapat Hadir
+                </div>
+            </div>
+        </div>
+        <div class="w-full overflow-scroll" style="height: 500px;">
+            <div class="flex justify-center items-center flex-col">
+                <div class="w-10/12 my-4 flex items-start">
+                    <div class="w-2/12 pt-1 pr-2">
+                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                    </div>
+                    <div class="SEGOEUI">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm cl-dark-cream">
+                                <h5>Yohanes Pamungkas</h5>
+                                <h5 class="text-xs">5 jam yang lalu</h5>
+                            </div>
+                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                hadir
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cl-dark-cream">
+                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-10/12 my-4 flex items-start">
+                    <div class="w-2/12 pt-1 pr-2">
+                        <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
+                    </div>
+                    <div class="SEGOEUI">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm cl-dark-cream">
+                                <h5>Nando Prasetyo</h5>
+                                <h5 class="text-xs">27/06/2021</h5>
+                            </div>
+                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                tidak hadir
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cl-dark-cream">
+                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-10/12 my-4 flex items-start">
+                    <div class="w-2/12 pt-1 pr-2">
+                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                    </div>
+                    <div class="SEGOEUI">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm cl-dark-cream">
+                                <h5>Yohanes Pamungkas</h5>
+                                <h5 class="text-xs">27/06/2021</h5>
+                            </div>
+                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                hadir
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cl-dark-cream">
+                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-10/12 my-4 flex items-start">
+                    <div class="w-2/12 pt-1 pr-2">
+                        <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
+                    </div>
+                    <div class="SEGOEUI">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm cl-dark-cream">
+                                <h5>Nando Prasetyo</h5>
+                                <h5 class="text-xs">27/06/2021</h5>
+                            </div>
+                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                tidak hadir
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cl-dark-cream">
+                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-10/12 my-4 flex items-start">
+                    <div class="w-2/12 pt-1 pr-2">
+                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                    </div>
+                    <div class="SEGOEUI">
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm cl-dark-cream">
+                                <h5>Yohanes Pamungkas</h5>
+                                <h5 class="text-xs">27/06/2021</h5>
+                            </div>
+                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                hadir
+                            </div>
+                        </div>
+                        <div>
+                            <p class="cl-dark-cream">
+                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full my-16">
+            <div class="flex justify-center items-center">
+                <video width="100%" controls>
+                    <source src="mov_bbb.mp4" type="video/mp4">
+                    <source src="mov_bbb.ogg" type="video/ogg">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="mb-16 flex justify-between items-center">
+                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                <h1 class="text-5xl cl-dark-cream DancingScript">Galery Photos</h1>
+                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+            </div>
+            <div class="slideshow-container">
+                <div class="mySlides2 fade">
+                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+                </div>
+                
+                <div class="mySlides2 fade">
+                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+                </div>
+                
+                <div class="mySlides2 fade">
+                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+                </div>
+                
+                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+                
+              </div>
+              <br>
+            
+              <div class="w-full absolute bottom-20" style="text-align:center">
+                <span class="dot2" onclick="currentSlide(1)"></span> 
+                <span class="dot2" onclick="currentSlide(2)"></span> 
+                <span class="dot2" onclick="currentSlide(3)"></span> 
+              </div>
+              <span class="circle--half"></span>
+        </div>
+        <div class="my-16">
+            <div class="SEGOEUI flex justify-center items-center flex-col js-scroll fade-in-bottom">
+                <img src="facemask.svg" alt="mask icon">
+                <h3 class="font-extrabold text-xl">HIMBAUAN</h3>
+                <h3 class="text-xl">PROTOKOL KESEHATAN</h3>
+                <p class="w-9/12 my-4">Kami menghimbau kepada para tamu agar tidak melupakan protocol kesehatan sesuai dengan aturan pemerintah seperti di bawah ini:</p>
+            </div>
+            <div class="js-scroll fade-in-bottom">
+                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">1</h3>
+                    <h3 class="text-xl">Pakai Masker</h3>
+                </div>
+                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">2</h3>
+                    <h3 class="text-xl">Pakai Masker</h3>
+                </div>
+                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">3</h3>
+                    <h3 class="text-xl">Pakai Masker</h3>
+                </div>
+                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">4</h3>
+                    <h3 class="text-xl">Pakai Masker</h3>
+                </div>
+                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">5</h3>
+                    <h3 class="text-xl">Pakai Masker</h3>
+                </div>
+            </div>
+        </div>
+        <div class="my-16 relative">
+            <img src="MaskGroup2.png" class="absolute top-0" style="width:428px;height:428px;z-index: -1;" alt="">
+            <div class="pt-52 flex justify-center items-center flex-col js-scroll fade-in-bottom">
+                <h5 class="SEGOEUI font-bold" style="color:#fafafa;">Thank You</h5>
+                <h1 class="text-5xl DancingScript" style="color:#fafafa;">Evika & Andrian</h1>
+            </div>
+        </div>
+    </div>
+    <section class="throttle-container" style="display: none;">
+        <p>
+            Scroll event is called <span id="scroll-count">0</span> times
+        </p>
+        <p>
+            Throttle event is called <span id="throttle-count">0</span> times
+        </p>
+    </section>
+  <script>
+      // JAVASCRIPT FOR SLIDER
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
+  <script>
+    // JAVASCRIPT FOR SLIDER 2
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides2");
+        var dots = document.getElementsByClassName("dot2");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jun 15, 2021 15:37:25").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+        // Get today's date and time
+        var now = new Date().getTime();
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        // Output the result in an element with id="demo"
+        document.getElementById("jsTimer").innerHTML = "<div>" + days + "<span>Days</span></div> : " + "<div>" + hours + "<span>Hours</span></div> : "
+        + "<div>" + minutes + "<span>Mins</span></div> : " + "<div>" + seconds + "<span>Secs</span></div>";
+            
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("jsTimer").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+    </script>
+
+    <script>
+        const scrollElements = document.querySelectorAll(".js-scroll");
+        const throttleCount = document.getElementById('throttle-count');
+        const scrollCount = document.getElementById('scroll-count');
+
+        var throttleTimer;
+
+        const throttle = (callback, time) => {
+        if (throttleTimer) return;
+
+            throttleTimer = true;
+            setTimeout(() => {
+            callback();
+                throttleTimer = false;
+            }, time);
+        }
+
+        const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop <=
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+        };
+
+        const elementOutofView = (el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        return (
+            elementTop > (window.innerHeight || document.documentElement.clientHeight)
+        );
+        };
+
+        const displayScrollElement = (element) => {
+        element.classList.add("scrolled");
+        };
+
+        const hideScrollElement = (element) => {
+        element.classList.remove("scrolled");
+        };
+
+        const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+            } else if (elementOutofView(el)) {
+            hideScrollElement(el)
+            }
+        })
+        }
+        var timer=0;
+        var count=0;
+        var scroll = 0;
+
+        window.addEventListener("scroll", () => { 
+            scrollCount.innerHTML = scroll++;
+            throttle(() => {
+                handleScrollAnimation();
+                throttleCount.innerHTML = count++;
+            }, 250);
+        });
+    </script>
+
+</body>
+</html>
