@@ -287,7 +287,25 @@
   </style>
 </head>
 <body>
-  <div class="content">
+    <!-- landing page -->
+    <div class="landing-page h-screen pt-40 flex items-center flex-col relative">
+        <img src="MaskGroup2.png" class="absolute top-0" style="z-index:-1;" alt="">
+        <div class="text-center tracking-widest" style="color: #fafafa;">
+            <h5 class="text-base futura-md">You're Invited to</h5>
+            <h5 class="text-base futura-md">The Wedding of</h5>
+            <h3 class="mt-6 text-5xl DancingScript">Evika & Andrian</h3>
+        </div>
+        <div class="mt-10 text-center tracking-widest">
+            <h5 class="text-base futura-md" style="color:#fafafa">Sabtu, 14 Maret 2021</h5>
+            <h5 class="text-base futura-md" style="color:#fafafa">19.00 - 21.00 WIB</h5>
+            <h5 class="text-base futura-md" style="color:#fafafa">Hotel Pesona - Semarang</h5>
+        </div>
+        <div class="rounded-full py-2 px-8 mt-36 w-6/12 text-center cursor-pointer" style="color:#6A4509; background-color: #F9F3E7" onclick="openInv()">
+            Open Invitation
+        </div>
+    </div>
+    <!-- landing page -->
+  <div class="mainContent content" style="display: none;">
       <div class="h-screen pt-40 flex items-center flex-col relative">
         <img src="MaskGroup2.png" class="absolute top-0" style="z-index:-1;" alt="">
         <div class="text-center" style="color: #fafafa;">
@@ -639,6 +657,11 @@
                 <h1 class="text-5xl DancingScript" style="color:#fafafa;">Evika & Andrian</h1>
             </div>
         </div>
+
+        <!-- MODALS -->
+        <div>
+
+        </div>
     </div>
     <section class="throttle-container" style="display: none;">
         <p>
@@ -648,6 +671,13 @@
             Throttle event is called <span id="throttle-count">0</span> times
         </p>
     </section>
+
+  <script>
+        function openInv() {
+            document.getElementsByClassName("landing-page")[0].style.display = 'none';
+            document.getElementsByClassName("mainContent")[0].style.display = 'block';
+        }
+  </script>
   <script>
       // JAVASCRIPT FOR SLIDER
     var slideIndex = 1;
