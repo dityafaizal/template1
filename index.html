@@ -242,6 +242,12 @@
         animation: fade-in-bottom 1s ease-in-out both;
     }
 
+    #hadirModal, #tidakModal {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
     /* Fading animation */
     .fade {
         -webkit-animation-name: fade;
@@ -398,6 +404,7 @@
             </div>
             </div>
           </div>
+        </div>
         <div class="mt-16 relative">
             <div class="ovale--2big"></div>
             <div class="flex items-center flex-col">
@@ -453,7 +460,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="z-index: -1;">
+        <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="">
             <div class="ovale--xl"></div>
             <div class="flex items-center flex-col js-scroll fade-in-bottom">
                 <h1 class="pt-20 text-5xl cl-dark-cream DancingScript">RSVP</h1>
@@ -462,12 +469,12 @@
                 <p class="py-4 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
                 <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
                 <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
-                <div class="rounded-full py-2 px-8 mb-4 w-9/12 text-center cursor-pointer" style="color:#F9F3E7; background-color: #6A4509">
+                <button id="hadirBtn" class="rounded-full py-2 px-8 mb-4 w-9/12 text-center cursor-pointer" style="color:#F9F3E7; background-color: #6A4509;">
                     Saya Akan Hadir
-                </div>
-                <div class="rounded-full py-2 px-8 w-9/12 text-center cursor-pointer" style="color: #B99E70; border: 1px solid #B99E70;">
+                </button>
+                <button id="tidakBtn" class="rounded-full py-2 px-8 w-9/12 text-center cursor-pointer" style="color: #B99E70; border: 1px solid #B99E70;">
                     Maaf Tidak Dapat Hadir
-                </div>
+                </button>
             </div>
         </div>
         <div class="w-full overflow-scroll" style="height: 500px;">
@@ -650,7 +657,7 @@
                 </div>
             </div>
         </div>
-        <div class="my-16 relative">
+        <div class="my-16 relative" style="height: 428px;">
             <img src="MaskGroup2.png" class="absolute top-0" style="width:428px;height:428px;z-index: -1;" alt="">
             <div class="pt-52 flex justify-center items-center flex-col js-scroll fade-in-bottom">
                 <h5 class="SEGOEUI font-bold" style="color:#fafafa;">Thank You</h5>
@@ -659,8 +666,60 @@
         </div>
 
         <!-- MODALS -->
-        <div>
-
+        <div id="hadirModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
+            <h5 class="text-base text-base DancingScript">The Wedding of</h5>
+            <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
+            <div class="my-6 flex justify-between items-center">
+                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                <h1 class="text-3xl tracking-widest futura-bold" style="color:#6AAAEA">Saya Akan Hadir</h1>
+                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+            </div>
+            <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
+                <div class="ovale--xl"></div>
+                <div class="w-9/12 mt-12 text-left flex flex-col items-center">
+                    <div class="w-full">
+                        <h5>Jumlah Tamu</h5>
+                        <div class="mt-2 flex justify-start items-center">
+                            <input type="button" onclick="decrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="-" />
+                            <input type="text" id="number" min="1" max="5" class="w-16 h-10 mx-3 px-2 text-center rounded-sm" value="0"/>
+                            <input type="button" onclick="incrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="+" />
+                            <span class="cl-dark-cream ml-2">orang</span>
+                        </div>
+                    </div>
+                    <div class="w-full my-4">
+                        <h5>No Whatsapp</h5>
+                        <input type="text" class="w-full h-10 mt-2 rounded-sm">
+                    </div>
+                    <div class="w-full">
+                        <h5>Tinggalkan Pesan</h5>
+                        <textarea name="text" cols="40" rows="5" class="mt-2 rounded-sm"></textarea>
+                    </div>
+                    <div class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)" onclick="">
+                        Kirim
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tidakModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
+            <h5 class="text-base text-base DancingScript">The Wedding of</h5>
+            <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
+            <div class="my-6 flex justify-between items-center">
+                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                <h1 class="text-2xl tracking-widest futura-bold" style="color:#6AAAEA">Maaf Tidak Dapat Hadir</h1>
+                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+            </div>
+            <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
+                <div class="ovale--xl"></div>
+                <div class="w-9/12 mt-12 text-left flex flex-col items-center">
+                    <div class="w-full">
+                        <h5>Tinggalkan Pesan</h5>
+                        <textarea name="text" cols="40" rows="7" class="mt-2 rounded-sm"></textarea>
+                    </div>
+                    <div class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)" onclick="">
+                        Kirim
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <section class="throttle-container" style="display: none;">
@@ -830,6 +889,84 @@
                 throttleCount.innerHTML = count++;
             }, 250);
         });
+    </script>
+
+    <!-- to increase decrease form value -->
+    <script>
+        function incrementValue()
+        {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number').value = value;
+        }
+        function decrementValue()
+        {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value--;
+            document.getElementById('number').value = value;
+        }
+    </script>   
+
+    <!-- hadir modal -->
+    <script>
+        // Get the modal
+        var modalHadir = document.getElementById("hadirModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("hadirBtn");
+        
+        // Get the <span> element that closes the modal
+        // var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modalHadir.style.display = "block";
+          console.log("hadir");
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        // span.onclick = function() {
+        //   modalHadir.style.display = "none";
+        // }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modalHadir.style.display = "none";
+          }
+        }
+    </script>
+
+    <!-- tidak hadir modal -->
+    <script>
+        // Get the modal
+        var modalTidak = document.getElementById("tidakModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("tidakBtn");
+        
+        // Get the <span> element that closes the modal
+        // var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modalTidak.style.display = "block";
+              console.log("tidak hadir");
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        // span.onclick = function() {
+        //   modal.style.display = "none";
+        // }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modalTidak) {
+                modalTidak.style.display = "none";
+            }
+        }
     </script>
 
 </body>
