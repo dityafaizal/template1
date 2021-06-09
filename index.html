@@ -449,7 +449,7 @@
                 <p class="py-4 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
                 <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
                 <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
-                <form class="w-9/12 mt-12 text-left flex flex-col items-center">
+                <form name="rsvpForm" class="w-9/12 mt-12 text-left flex flex-col items-start">
                     <div class="w-full my-4">
                         <h5>Nama</h5>
                         <input type="text" class="w-full h-10 mt-2 rounded-sm" style="background-color:#fff">
@@ -458,18 +458,20 @@
                         <h5>Alamat / Instansi</h5>
                         <textarea name="text" cols="40" rows="5" class="mt-2 rounded-sm" style="background-color:#fff"></textarea>
                     </div>
-                    <div class="w-full my-4 flex items-start flex-col">
-                        <h5>Apakah Anda Akan Hadir?</h5>
-                        <div class="flex">
-                            <input type="radio" id="hadir" value="hadir">
-                            <label for="hadir" class="ml-2">Ya, Saya akan hadir</label><br>
-                        </div>
-                        <div class="flex">
-                            <input type="radio" id="tidakhadir" value="tidakhadir">
-                            <label for="tidakhadir" class="ml-2">Maaf, Saya tidak dapat hadir</label><br>
-                        </div>
+                    <fieldset class="mt-3">
+                        <legend>Apakah Anda Akan Hadir?</legend>
+                    
+                        <input type="radio" name="kehadiran" id="hadir" value="hadir" onchange="radioVal()">
+                        <label for="hadir">Ya, Saya akan hadir</label>
+                        <br>
+                        <input type="radio" name="kehadiran" id="tidakhadir" value="tidakhadir" onchange="radioVal()">
+                        <label for="tidakhadir">Maaf, Saya tidak dapat hadir</label>
+                    
+                    </fieldset>
+                    <div id="hadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
+                        Kirim
                     </div>
-                    <div id="barcodeBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
+                    <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="display:none;color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
                         Kirim
                     </div>
                 </form>
@@ -952,7 +954,22 @@
             value--;
             document.getElementById('number').value = value;
         }
-    </script>   
+    </script>
+
+    <!-- to decide which button hadir tidak hadir -->
+    <script>
+        function radioVal(){
+            var select = document.querySelector('input[name="kehadiran"]:checked').value;
+            if(select == "hadir") { 
+                document.getElementById('hadirBtn').style.display = "block";
+                document.getElementById('tidakhadirBtn').style.display = "none";
+            }
+            else { 
+                document.getElementById('hadirBtn').style.display = "none";
+                document.getElementById('tidakhadirBtn').style.display = "block";
+            }
+        }
+    </script>
 
     <!-- hadir modal -->
     <script>
