@@ -61,6 +61,9 @@
         overflow-x: hidden;
     }
     body {
+        max-width: 800px;
+        margin: auto;
+        background-color: #FCF8F0;
         position: relative;
     }
     .cl-cream {
@@ -77,7 +80,7 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        z-index: -1;
+        /* z-index: -1; */
         transform: translate(-50%, 0);
     }
     .ovale--xl {
@@ -88,7 +91,7 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        z-index: -1;
+        /* z-index: -1; */
         transform: translate(-50%, 0);
     }
     .ovale--big {
@@ -99,7 +102,7 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        z-index: -1;
+        /* z-index: -1; */
         transform: translate(-50%, 0);
     }
     .ovale--2big {
@@ -110,7 +113,7 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        z-index: -1;
+        /* z-index: -1; */
         transform: translate(-50%, 0);
     }
     .black-50 {
@@ -118,6 +121,18 @@
     }
     .clip-ellipse {
         clip-path: ellipse(428px 200px at center);
+    }
+    .halfcirc-img {
+        width: 428px;
+        height: 428px;
+    }
+    @media (min-width: 768px) {
+        .halfcirc-img {
+            width: 100%;
+        }
+        .ovale--md, .ovale--xl, .ovale--big, .ovale--2big {
+            width: 1000px;
+        }
     }
     .animateUpDown {
         animation: MoveUpDown 1.2s ease-in infinite;
@@ -175,7 +190,7 @@
         max-width: 1000px;
         position: relative;
         margin: auto;
-        z-index: -2;
+        /* z-index: -2; */
     }
 
     /* Next & previous buttons */
@@ -248,7 +263,8 @@
     #hadirModal, #tidakModal, #barcodeModal, #tidakhadirModal {
         position: fixed;
         top: 0;
-        left: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 
     /* Fading animation */
@@ -296,9 +312,10 @@
   </style>
 </head>
 <body>
+    <!-- <div class="bg-white h-screen w-full fixed top-0" style="z-index: -3;"></div> -->
     <!-- landing page -->
     <div class="landing-page h-screen pt-40 flex items-center flex-col relative">
-        <img src="MaskGroup2.png" class="absolute top-0" style="z-index:-1;" alt="">
+        <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen top-0" style="z-index:-1;" alt="">
         <div class="text-center tracking-widest" style="color: #fafafa;">
             <h5 class="text-base futura-md">You're Invited to</h5>
             <h5 class="text-base futura-md">The Wedding of</h5>
@@ -314,461 +331,459 @@
         </div>
     </div>
     <!-- landing page -->
-  <div class="mainContent content" style="display: none;">
-      <div class="h-screen pt-40 flex items-center flex-col relative">
-        <img src="MaskGroup2.png" class="absolute top-0" style="z-index:-1;" alt="">
-        <div class="text-center" style="color: #fafafa;">
-            <h5 class="text-lg futura-md">The Wedding of</h5>
-            <h3 class="text-5xl DancingScript">Evika & Andrian</h3>
+    <div class="mainContent content bg-white" style="display: none;">
+        <div class="h-screen pt-40 flex items-center flex-col relative">
+            <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen top-0" alt="">
+            <div class="text-center" style="color: #fafafa;z-index:2;">
+                <h5 class="text-lg futura-md">The Wedding of</h5>
+                <h3 class="text-5xl DancingScript">Evika & Andrian</h3>
+            </div>
+            <div class="mt-20 text-center" style="z-index:2;">
+                <h5 class="text-lg futura-md" style="color:#fafafa">Kepada</h5>
+                <h5 class="text-lg futura-md" style="color:#fafafa">Yth. Bpk / Ibu / Sdra / i</h5>
+                <h5 class="text-lg futura-md" style="color:#fafafa">{{ name }}</h5>
+                <h5 class="text-lg futura-md" style="color:#fafafa">{{ address }}</h5>
+            </div>
+            <div class="mt-52 w-12 relative">
+                <img src="iconmonstr-arrow-31.svg" class="animateUpDown" alt="arrow down icon" style="transform: rotate(90deg);">
+            </div>
         </div>
-        <div class="mt-20 text-center">
-            <h5 class="text-lg futura-md" style="color:#fafafa">Kepada</h5>
-            <h5 class="text-lg futura-md" style="color:#fafafa">Yth. Bpk / Ibu / Sdra / i</h5>
-            <h5 class="text-lg futura-md" style="color:#fafafa">{{ name }}</h5>
-            <h5 class="text-lg futura-md" style="color:#fafafa">{{ address }}</h5>
-        </div>
-        <div class="mt-52 w-12 relative">
-            <img src="iconmonstr-arrow-31.svg" class="animateUpDown" alt="arrow down icon" style="transform: rotate(90deg);">
-        </div>
-      </div>
-      <div class="h-screen flex justify-between items-center flex-col relative">
-          <div class="ovale--md"></div>
-          <div class="pt-20 text-center w-9/12 js-scroll fade-in-bottom">
-            <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalanualaikum Warrahmatullah Wabarakatuh</h3>
-            <h3 class="p-4 text-lg futura-md" style="color:#7B4F06">Bismillahirramanirrahim</h3>
-            <p class="text-sm futura-md" style="color:#7B4F06">"Dan diantara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenang dan tentram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir." (QS:. Ar-Rum: 21)</p>
-          </div>
+        <div class="flex justify-between items-center flex-col relative">
+            <div class="ovale--md"></div>
+            <div class="pt-20 text-center w-9/12 js-scroll fade-in-bottom">
+                <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalanualaikum Warrahmatullah Wabarakatuh</h3>
+                <h3 class="p-4 text-lg futura-md" style="color:#7B4F06">Bismillahirramanirrahim</h3>
+                <p class="text-sm futura-md" style="color:#7B4F06">"Dan diantara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenang dan tentram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir." (QS:. Ar-Rum: 21)</p>
+            </div>
 
-          <div class="w-full absolute bottom-12">
-            <img src="MaskGroup2.png" class="relative" style="width:428px;height:428px;z-index: -2;" alt="">
-          </div>
-      </div>
-      <div class="mt-22">
-          <div class="py-12 text-center flex justify-center relative">
-            <div class="h-1 w-12 absolute top-0 left-0" style="background-color: #C7CEBE;"></div>
-            <p class="w-9/12 js-scroll fade-in-bottom">
-                Dengan memohon ridho dan rahmat Allah Subhanahuwataala izinkan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri dan memberikan doa restu pada pernikahan kami :
-            </p>
-            <div class="h-1 w-12 absolute bottom-0 right-0" style="background-color: #E1D5BE;"></div>
-          </div>
-          <div class="mt-8 relative">
-            <div class="ovale--big"></div>
-            <div class="pt-14 flex items-center flex-col js-scroll fade-in-bottom">
+            <div class="w-full absolute bottom-12">
+                <img src="MaskGroup2.png" class="relative halfcirc-img" style="z-index: -2;" alt="">
+            </div>
+        </div>
+        <div class="mt-40 md:mt-60">
+            <div class="py-12 text-center flex justify-center relative">
+                <div class="h-1 w-12 absolute top-0 left-0" style="background-color: #C7CEBE;"></div>
+                <p class="w-9/12 js-scroll fade-in-bottom">
+                    Dengan memohon ridho dan rahmat Allah Subhanahuwataala izinkan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri dan memberikan doa restu pada pernikahan kami :
+                </p>
+                <div class="h-1 w-12 absolute bottom-0 right-0" style="background-color: #E1D5BE;"></div>
+            </div>
+            <div class="mt-8 relative">
+                <div class="ovale--big"></div>
+                <div class="pt-14 flex items-center flex-col js-scroll fade-in-bottom">
+                    <img src="https://dummyimage.com/300x300/000/fff.jpg" class="rounded-full w-80 h-80 mb-6" alt="">
+                    <h5 class="text-sm tracking-widest SEGOEUI">Evika Rana Getavani</h5>
+                    <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Evika</h1>
+                    <h5 class="mb-2 text-sm SEGOEUI">Putri pertama dari</h5>
+                    <div class="w-7/12 text-center text-sm SEGOEUI">
+                    <h5>Bpk. Kolonel Arh. Tri Wahjudjianto</h5>
+                    <h5>&</h5>
+                    <h5>Ibu Indah Mustika</h5>
+                    </div>
+                    <div class="rounded-full py-2 px-5 mt-8 flex justify-between items-center" style="background-color: rgba(106, 170, 234, .15);">
+                        <img src="iconmonstr-instagram-14.svg" width="16" class="pt-0.5" alt="iconmonstr-instagram-14.svg">
+                        <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">evikarana</span>
+                    </div>
+                </div>
+                <div class="mt-6 flex items-center flex-col js-scroll fade-in-bottom">
                 <img src="https://dummyimage.com/300x300/000/fff.jpg" class="rounded-full w-80 h-80 mb-6" alt="">
-                <h5 class="text-sm tracking-widest SEGOEUI">Evika Rana Getavani</h5>
-                <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Evika</h1>
-                <h5 class="mb-2 text-sm SEGOEUI">Putri pertama dari</h5>
+                <h5 class="text-sm tracking-widest SEGOEUI">Andrian Najib Fayruz</h5>
+                <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Andrian</h1>
+                <h5 class="mb-2 text-sm SEGOEUI">Putra kedua dari</h5>
                 <div class="w-7/12 text-center text-sm SEGOEUI">
-                  <h5>Bpk. Kolonel Arh. Tri Wahjudjianto</h5>
-                  <h5>&</h5>
-                  <h5>Ibu Indah Mustika</h5>
+                    <h5>Bpk. H. Bambang Maryanto (Alm)</h5>
+                    <h5>&</h5>
+                    <h5>Ibu Hj. Sri Khunfa'ah</h5>
                 </div>
                 <div class="rounded-full py-2 px-5 mt-8 flex justify-between items-center" style="background-color: rgba(106, 170, 234, .15);">
                     <img src="iconmonstr-instagram-14.svg" width="16" class="pt-0.5" alt="iconmonstr-instagram-14.svg">
-                    <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">evikarana</span>
+                    <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">andrian89</span>
+                </div>
                 </div>
             </div>
-            <div class="mt-6 flex items-center flex-col js-scroll fade-in-bottom">
-              <img src="https://dummyimage.com/300x300/000/fff.jpg" class="rounded-full w-80 h-80 mb-6" alt="">
-              <h5 class="text-sm tracking-widest SEGOEUI">Andrian Najib Fayruz</h5>
-              <h1 class="my-4 text-7xl cl-dark-cream tracking-widest DancingScript">Andrian</h1>
-              <h5 class="mb-2 text-sm SEGOEUI">Putra kedua dari</h5>
-              <div class="w-7/12 text-center text-sm SEGOEUI">
-                <h5>Bpk. H. Bambang Maryanto (Alm)</h5>
-                <h5>&</h5>
-                <h5>Ibu Hj. Sri Khunfa'ah</h5>
-              </div>
-              <div class="rounded-full py-2 px-5 mt-8 flex justify-between items-center" style="background-color: rgba(106, 170, 234, .15);">
-                <img src="iconmonstr-instagram-14.svg" width="16" class="pt-0.5" alt="iconmonstr-instagram-14.svg">
-                <span class="text-sm pl-1 futura-md" style="color: #6AAAEA;">andrian89</span>
             </div>
+            <div class="mt-16 relative">
+                <div class="ovale--2big"></div>
+                <div class="flex items-center flex-col">
+                    <div class="w-9/12 text-center">
+                        <p class="pt-16 cl-dark-cream SEGOEUI js-scroll fade-in-bottom">
+                            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir di acara Resepsi dan memberikan doa restu kepada kami.
+                        </p>
+                        <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
+                            <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
+                            <h1 class="text-3xl cl-dark-cream DancingScript">Akad Nikah</h1>
+                            <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
+                            <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
+                            <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
+                            <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
+                            <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
+                                <img src="your-location.svg" width="18" alt="map icon">
+                                <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
+                            </div>
+                        </div>
+                        <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
+                            <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
+                            <h1 class="text-3xl cl-dark-cream DancingScript">Resepsi</h1>
+                            <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
+                            <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
+                            <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
+                            <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
+                            <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
+                                <img src="your-location.svg" width="18" alt="map icon">
+                                <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="mt-16 relative">
-            <div class="ovale--2big"></div>
-            <div class="flex items-center flex-col">
-                <div class="w-9/12 text-center">
-                    <p class="pt-16 cl-dark-cream SEGOEUI js-scroll fade-in-bottom">
-                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir di acara Resepsi dan memberikan doa restu kepada kami.
+            <div class="mt-36 flex items-center flex-col">
+                <div class="w-9/12 text-center js-scroll fade-in-bottom">
+                    <p class="cl-dark-cream SEGOEUI">
+                        Prosesi Akad hanya dihadiri keluarga dan kerabat terdekat. <br><br> Bagi yang berhalangan hadir dapat menyaksikan jalannya prosesi akad dan resepsi melalui live streaming dengan alamat tautan sebagai berikut:
                     </p>
-                    <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
-                        <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
-                        <h1 class="text-3xl cl-dark-cream DancingScript">Akad Nikah</h1>
-                        <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
-                        <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
-                        <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
-                        <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
-                        <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
-                            <img src="your-location.svg" width="18" alt="map icon">
-                            <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
-                        </div>
+                    <div class="rounded-full py-2 px-8 mt-16" style="background-color: rgba(106, 170, 234, .15);">
+                        <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);">https://linktr.ee/WeddingDisaNajib</a>
                     </div>
-                    <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
-                        <img src="https://dummyimage.com/80x80/000/fff.jpg" class="rounded-full mb-2" alt="ring icon">
-                        <h1 class="text-3xl cl-dark-cream DancingScript">Resepsi</h1>
-                        <div class="h-0.5 w-48 mt-2" style="background-color: rgba(199, 206, 190, .35);"></div>
-                        <h5 class="pt-6 SEGOEUI">Sabtu, 14 Maret 2021</h5>
-                        <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
-                        <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
-                        <div class="rounded-full py-2 px-8 mt-8 flex justify-between items-center" style="background-color: #7B4F06;">
-                            <img src="your-location.svg" width="18" alt="map icon">
-                            <span class="pl-2 text-md font-normal futura-md" style="color:#F9F3E7">Map Location</span>
+                </div>
+            </div>
+            <div class="my-16 flex items-center flex-col relative" style="z-index: 2;">
+                <img src="MaskGroup2.png" class="halfcirc-img absolute clip-ellipse top-0" style="z-index: -1;" alt="">
+                <div class="mt-28 text-center">
+                    <h1 class="text-3xl SEGOEUI" style="color:#F9F3E7;">Counting The Day</h1>
+                    <div class="rounded-full py-6 px-12 mt-8" style="background-color: rgba(123, 79, 6, .5);">
+                        <div>
+                            <div id="jsTimer" class="text-3xl futura-extra-bold" style="color:#fff;"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mt-36 flex items-center flex-col">
-            <div class="w-9/12 text-center js-scroll fade-in-bottom">
-                <p class="cl-dark-cream SEGOEUI">
-                    Prosesi Akad hanya dihadiri keluarga dan kerabat terdekat. <br><br> Bagi yang berhalangan hadir dapat menyaksikan jalannya prosesi akad dan resepsi melalui live streaming dengan alamat tautan sebagai berikut:
-                </p>
-                <div class="rounded-full py-2 px-8 mt-16" style="background-color: rgba(106, 170, 234, .15);">
-                    <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);">https://linktr.ee/WeddingDisaNajib</a>
+            <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="">
+                <div class="ovale--2big"></div>
+                <div class="flex items-center flex-col js-scroll fade-in-bottom">
+                    <h1 class="pt-20 text-5xl cl-dark-cream DancingScript">RSVP</h1>
+                    <h5 class="py-4 text-lg">Yth. Bpk/Ibu/Sdra/i</h5>
+                    <h3 class="text-lg">{{ name }}</h3>
+                    <p class="py-4 md:w-8/12 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
+                    <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
+                    <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
+                    <form name="rsvpForm" class="w-9/12 mt-12 text-left flex flex-col items-start">
+                        <div class="w-full my-4">
+                            <h5>Nama</h5>
+                            <input type="text" class="w-full h-10 mt-2 rounded-sm" style="background-color:#fff">
+                        </div>
+                        <div class="w-full">
+                            <h5>Alamat / Instansi</h5>
+                            <textarea name="text" cols="40" rows="5" class="mt-2 md:w-full rounded-sm" style="background-color:#fff"></textarea>
+                        </div>
+                        <fieldset class="mt-3">
+                            <legend>Apakah Anda Akan Hadir?</legend>
+                        
+                            <input type="radio" name="kehadiran" id="hadir" value="hadir" onchange="radioVal()">
+                            <label for="hadir">Ya, Saya akan hadir</label>
+                            <br>
+                            <input type="radio" name="kehadiran" id="tidakhadir" value="tidakhadir" onchange="radioVal()">
+                            <label for="tidakhadir">Maaf, Saya tidak dapat hadir</label>
+                        
+                        </fieldset>
+                        <div id="hadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
+                            Kirim
+                        </div>
+                        <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="display:none;color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
+                            Kirim
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="my-16 flex items-center flex-col relative" style="z-index: 2;">
-            <img src="MaskGroup2.png" class="absolute clip-ellipse top-0" style="width:428px;height:428px;z-index: -1;" alt="">
-            <div class="mt-28 text-center">
-                <h1 class="text-3xl SEGOEUI" style="color:#F9F3E7;">Counting The Day</h1>
-                <div class="rounded-full py-6 px-12 mt-8" style="background-color: rgba(123, 79, 6, .5);">
-                    <div>
-                        <div id="jsTimer" class="text-3xl futura-extra-bold" style="color:#fff;"></div>
+            <div class="w-full overflow-scroll" style="height: 500px;position: relative;z-index: 1;">
+                <div class="flex justify-center items-center flex-col">
+                    <div class="w-10/12 my-4 flex items-start">
+                        <div class="w-2/12 pt-1 pr-2">
+                            <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                        </div>
+                        <div class="SEGOEUI">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm cl-dark-cream">
+                                    <h5>Yohanes Pamungkas</h5>
+                                    <h5 class="text-xs">5 jam yang lalu</h5>
+                                </div>
+                                <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                    hadir
+                                </div>
+                            </div>
+                            <div>
+                                <p class="cl-dark-cream">
+                                    "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-10/12 my-4 flex items-start">
+                        <div class="w-2/12 pt-1 pr-2">
+                            <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
+                        </div>
+                        <div class="SEGOEUI">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm cl-dark-cream">
+                                    <h5>Nando Prasetyo</h5>
+                                    <h5 class="text-xs">27/06/2021</h5>
+                                </div>
+                                <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                    tidak hadir
+                                </div>
+                            </div>
+                            <div>
+                                <p class="cl-dark-cream">
+                                    "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-10/12 my-4 flex items-start">
+                        <div class="w-2/12 pt-1 pr-2">
+                            <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                        </div>
+                        <div class="SEGOEUI">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm cl-dark-cream">
+                                    <h5>Yohanes Pamungkas</h5>
+                                    <h5 class="text-xs">27/06/2021</h5>
+                                </div>
+                                <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                    hadir
+                                </div>
+                            </div>
+                            <div>
+                                <p class="cl-dark-cream">
+                                    "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-10/12 my-4 flex items-start">
+                        <div class="w-2/12 pt-1 pr-2">
+                            <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
+                        </div>
+                        <div class="SEGOEUI">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm cl-dark-cream">
+                                    <h5>Nando Prasetyo</h5>
+                                    <h5 class="text-xs">27/06/2021</h5>
+                                </div>
+                                <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                    tidak hadir
+                                </div>
+                            </div>
+                            <div>
+                                <p class="cl-dark-cream">
+                                    "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-10/12 my-4 flex items-start">
+                        <div class="w-2/12 pt-1 pr-2">
+                            <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
+                        </div>
+                        <div class="SEGOEUI">
+                            <div class="flex justify-between items-center">
+                                <div class="text-sm cl-dark-cream">
+                                    <h5>Yohanes Pamungkas</h5>
+                                    <h5 class="text-xs">27/06/2021</h5>
+                                </div>
+                                <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
+                                    hadir
+                                </div>
+                            </div>
+                            <div>
+                                <p class="cl-dark-cream">
+                                    "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="">
-            <div class="ovale--2big"></div>
-            <div class="flex items-center flex-col js-scroll fade-in-bottom">
-                <h1 class="pt-20 text-5xl cl-dark-cream DancingScript">RSVP</h1>
-                <h5 class="py-4 text-lg">Yth. Bpk/Ibu/Sdra/i</h5>
-                <h3 class="text-lg">{{ name }}</h3>
-                <p class="py-4 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
-                <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
-                <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
-                <form name="rsvpForm" class="w-9/12 mt-12 text-left flex flex-col items-start">
-                    <div class="w-full my-4">
-                        <h5>Nama</h5>
-                        <input type="text" class="w-full h-10 mt-2 rounded-sm" style="background-color:#fff">
+            <div class="w-full my-16">
+                <div class="flex justify-center items-center">
+                    <video width="100%" controls>
+                        <source src="mov_bbb.mp4" type="video/mp4">
+                        <source src="mov_bbb.ogg" type="video/ogg">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="mb-16 flex justify-between items-center">
+                    <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                    <h1 class="text-5xl cl-dark-cream DancingScript">Galery Photos</h1>
+                    <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+                </div>
+                <div class="slideshow-container">
+                    <div class="mySlides2 fade">
+                    <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
                     </div>
-                    <div class="w-full">
-                        <h5>Alamat / Instansi</h5>
-                        <textarea name="text" cols="40" rows="5" class="mt-2 rounded-sm" style="background-color:#fff"></textarea>
-                    </div>
-                    <fieldset class="mt-3">
-                        <legend>Apakah Anda Akan Hadir?</legend>
                     
-                        <input type="radio" name="kehadiran" id="hadir" value="hadir" onchange="radioVal()">
-                        <label for="hadir">Ya, Saya akan hadir</label>
-                        <br>
-                        <input type="radio" name="kehadiran" id="tidakhadir" value="tidakhadir" onchange="radioVal()">
-                        <label for="tidakhadir">Maaf, Saya tidak dapat hadir</label>
+                    <div class="mySlides2 fade">
+                    <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+                    </div>
                     
-                    </fieldset>
-                    <div id="hadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
-                        Kirim
+                    <div class="mySlides2 fade">
+                    <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
                     </div>
-                    <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="display:none;color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
-                        Kirim
-                    </div>
-                </form>
-                <!-- <button id="hadirBtn" class="rounded-full py-2 px-8 mb-4 w-9/12 text-center cursor-pointer" style="color:#F9F3E7; background-color: #6A4509;">
-                    Saya Akan Hadir
-                </button>
-                <button id="tidakBtn" class="rounded-full py-2 px-8 w-9/12 text-center cursor-pointer" style="color: #B99E70; border: 1px solid #B99E70;">
-                    Maaf Tidak Dapat Hadir
-                </button> -->
-            </div>
-        </div>
-        <div class="w-full overflow-scroll" style="height: 500px;">
-            <div class="flex justify-center items-center flex-col">
-                <div class="w-10/12 my-4 flex items-start">
-                    <div class="w-2/12 pt-1 pr-2">
-                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
-                    </div>
-                    <div class="SEGOEUI">
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm cl-dark-cream">
-                                <h5>Yohanes Pamungkas</h5>
-                                <h5 class="text-xs">5 jam yang lalu</h5>
-                            </div>
-                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
-                                hadir
-                            </div>
-                        </div>
-                        <div>
-                            <p class="cl-dark-cream">
-                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
-                            </p>
-                        </div>
-                    </div>
+                    
+                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+                    
                 </div>
-                <div class="w-10/12 my-4 flex items-start">
-                    <div class="w-2/12 pt-1 pr-2">
-                        <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
-                    </div>
-                    <div class="SEGOEUI">
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm cl-dark-cream">
-                                <h5>Nando Prasetyo</h5>
-                                <h5 class="text-xs">27/06/2021</h5>
-                            </div>
-                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
-                                tidak hadir
-                            </div>
-                        </div>
-                        <div>
-                            <p class="cl-dark-cream">
-                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-10/12 my-4 flex items-start">
-                    <div class="w-2/12 pt-1 pr-2">
-                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
-                    </div>
-                    <div class="SEGOEUI">
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm cl-dark-cream">
-                                <h5>Yohanes Pamungkas</h5>
-                                <h5 class="text-xs">27/06/2021</h5>
-                            </div>
-                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
-                                hadir
-                            </div>
-                        </div>
-                        <div>
-                            <p class="cl-dark-cream">
-                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-10/12 my-4 flex items-start">
-                    <div class="w-2/12 pt-1 pr-2">
-                        <img src="https://dummyimage.com/31x31/000/fff.jpg" alt="message icon">
-                    </div>
-                    <div class="SEGOEUI">
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm cl-dark-cream">
-                                <h5>Nando Prasetyo</h5>
-                                <h5 class="text-xs">27/06/2021</h5>
-                            </div>
-                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
-                                tidak hadir
-                            </div>
-                        </div>
-                        <div>
-                            <p class="cl-dark-cream">
-                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-10/12 my-4 flex items-start">
-                    <div class="w-2/12 pt-1 pr-2">
-                        <img src="https://dummyimage.com/31x31/000/fff.jpg" width="31" alt="message icon">
-                    </div>
-                    <div class="SEGOEUI">
-                        <div class="flex justify-between items-center">
-                            <div class="text-sm cl-dark-cream">
-                                <h5>Yohanes Pamungkas</h5>
-                                <h5 class="text-xs">27/06/2021</h5>
-                            </div>
-                            <div class="rounded-full py-1 px-3 text-center text-white text-sm font-light" style="background-color: #7B4F06;">
-                                hadir
-                            </div>
-                        </div>
-                        <div>
-                            <p class="cl-dark-cream">
-                                "Selamat menikah. Di kehidupan baru yang kalian tapaki, semoga cinta dan bahagia senantiasa membersamai."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full my-16">
-            <div class="flex justify-center items-center">
-                <video width="100%" controls>
-                    <source src="mov_bbb.mp4" type="video/mp4">
-                    <source src="mov_bbb.ogg" type="video/ogg">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-        </div>
-        <div class="relative">
-            <div class="mb-16 flex justify-between items-center">
-                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
-                <h1 class="text-5xl cl-dark-cream DancingScript">Galery Photos</h1>
-                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
-            </div>
-            <div class="slideshow-container">
-                <div class="mySlides2 fade">
-                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
-                </div>
+                <br>
                 
-                <div class="mySlides2 fade">
-                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
+                <div class="w-full absolute bottom-20" style="text-align:center">
+                    <span class="dot2" onclick="currentSlide(1)"></span> 
+                    <span class="dot2" onclick="currentSlide(2)"></span> 
+                    <span class="dot2" onclick="currentSlide(3)"></span> 
                 </div>
-                
-                <div class="mySlides2 fade">
-                  <img src="https://dummyimage.com/600x600/000/fff.jpg" style="width:100%">
-                </div>
-                
-                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-                
-              </div>
-              <br>
-            
-              <div class="w-full absolute bottom-20" style="text-align:center">
-                <span class="dot2" onclick="currentSlide(1)"></span> 
-                <span class="dot2" onclick="currentSlide(2)"></span> 
-                <span class="dot2" onclick="currentSlide(3)"></span> 
-              </div>
-              <span class="circle--half"></span>
-        </div>
-        <div class="my-16">
-            <div class="SEGOEUI flex justify-center items-center flex-col js-scroll fade-in-bottom">
-                <img src="facemask.svg" alt="mask icon">
-                <h3 class="font-extrabold text-xl">HIMBAUAN</h3>
-                <h3 class="text-xl">PROTOKOL KESEHATAN</h3>
-                <p class="w-9/12 my-4">Kami menghimbau kepada para tamu agar tidak melupakan protocol kesehatan sesuai dengan aturan pemerintah seperti di bawah ini:</p>
+                <span class="circle--half"></span>
             </div>
-            <div class="js-scroll fade-in-bottom">
-                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
-                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">1</h3>
-                    <h3 class="text-xl">Pakai Masker</h3>
+            <div class="my-16">
+                <div class="SEGOEUI flex justify-center items-center flex-col js-scroll fade-in-bottom">
+                    <img src="facemask.svg" alt="mask icon">
+                    <h3 class="font-extrabold text-xl">HIMBAUAN</h3>
+                    <h3 class="text-xl">PROTOKOL KESEHATAN</h3>
+                    <p class="w-9/12 my-4">Kami menghimbau kepada para tamu agar tidak melupakan protocol kesehatan sesuai dengan aturan pemerintah seperti di bawah ini:</p>
                 </div>
-                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
-                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">2</h3>
-                    <h3 class="text-xl">Pakai Masker</h3>
-                </div>
-                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
-                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">3</h3>
-                    <h3 class="text-xl">Pakai Masker</h3>
-                </div>
-                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
-                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">4</h3>
-                    <h3 class="text-xl">Pakai Masker</h3>
-                </div>
-                <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
-                    <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">5</h3>
-                    <h3 class="text-xl">Pakai Masker</h3>
+                <div class="js-scroll fade-in-bottom">
+                    <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                        <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">1</h3>
+                        <h3 class="text-xl">Pakai Masker</h3>
+                    </div>
+                    <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                        <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">2</h3>
+                        <h3 class="text-xl">Pakai Masker</h3>
+                    </div>
+                    <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                        <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">3</h3>
+                        <h3 class="text-xl">Pakai Masker</h3>
+                    </div>
+                    <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                        <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">4</h3>
+                        <h3 class="text-xl">Pakai Masker</h3>
+                    </div>
+                    <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
+                        <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">5</h3>
+                        <h3 class="text-xl">Pakai Masker</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="my-16 relative" style="height: 428px;">
-            <img src="MaskGroup2.png" class="absolute top-0" style="width:428px;height:428px;z-index: -1;" alt="">
-            <div class="pt-52 flex justify-center items-center flex-col js-scroll fade-in-bottom">
-                <h5 class="SEGOEUI font-bold" style="color:#fafafa;">Thank You</h5>
-                <h1 class="text-5xl DancingScript" style="color:#fafafa;">Evika & Andrian</h1>
+            <div class="my-16 relative" style="height: 428px;">
+                <img src="MaskGroup2.png" class="absolute halfcirc-img top-0" style="" alt="">
+                <div class="pt-52 flex justify-center items-center flex-col js-scroll fade-in-bottom">
+                    <h5 class="SEGOEUI font-bold" style="color:#fafafa;">Thank You</h5>
+                    <h1 class="text-5xl DancingScript" style="color:#fafafa;">Evika & Andrian</h1>
+                </div>
             </div>
-        </div>
 
-        <!-- MODALS -->
-        <div id="hadirModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
-            <h5 class="text-base text-base DancingScript">The Wedding of</h5>
-            <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
-            <div class="my-6 flex justify-between items-center">
-                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
-                <h1 class="text-3xl tracking-widest futura-bold" style="color:#6AAAEA">Saya Akan Hadir</h1>
-                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
-            </div>
-            <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
-                <div class="ovale--xl"></div>
-                <div class="w-9/12 mt-12 text-left flex flex-col items-center">
-                    <div class="w-full">
-                        <h5>Jumlah Tamu</h5>
-                        <div class="mt-2 flex justify-start items-center">
-                            <input type="button" onclick="decrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="-" />
-                            <input type="text" id="number" min="1" max="5" class="w-16 h-10 mx-3 px-2 text-center rounded-sm" value="0"/>
-                            <input type="button" onclick="incrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="+" />
-                            <span class="cl-dark-cream ml-2">orang</span>
+            <!-- MODALS -->
+            <div id="hadirModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
+                <div id="closeHadir" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
+                <h5 class="mt-4 text-base text-base DancingScript">The Wedding of</h5>
+                <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
+                <div class="my-6 flex justify-between items-center">
+                    <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                    <h1 class="text-3xl tracking-widest futura-bold" style="color:#6AAAEA">Saya Akan Hadir</h1>
+                    <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+                </div>
+                <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
+                    <div class="ovale--xl"></div>
+                    <div class="w-9/12 mt-12 text-left flex flex-col items-center" style="z-index:2;">
+                        <div class="w-full md:w-3/6">
+                            <h5>Jumlah Tamu</h5>
+                            <div class="mt-2 flex justify-start items-center">
+                                <input type="button" onclick="decrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="-" />
+                                <input type="text" id="number" min="1" max="5" class="w-16 h-10 mx-3 px-2 text-center rounded-sm" value="0"/>
+                                <input type="button" onclick="incrementValue()" class="w-12 h-10 rounded-sm futura-extra-bold text-3xl text-center" style="color:#fafafa;background-color:#6AAAEA;" value="+" />
+                                <span class="cl-dark-cream ml-2">orang</span>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-3/6 my-4">
+                            <h5>No Whatsapp</h5>
+                            <input type="text" class="w-full h-10 mt-2 rounded-sm">
+                        </div>
+                        <div class="w-full md:w-3/6">
+                            <h5>Tinggalkan Pesan</h5>
+                            <textarea name="text" cols="40" rows="5" class="mt-2 w-full rounded-sm"></textarea>
+                        </div>
+                        <div id="barcodeBtn" class="rounded-full py-2 px-8 mt-12 w-full md:w-3/6 text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
+                            Kirim
                         </div>
                     </div>
-                    <div class="w-full my-4">
-                        <h5>No Whatsapp</h5>
-                        <input type="text" class="w-full h-10 mt-2 rounded-sm">
+                </div>
+            </div>
+            <div id="tidakModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
+                <div id="closeTidak" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
+                <h5 class="text-base text-base DancingScript">The Wedding of</h5>
+                <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
+                <div class="my-6 flex justify-between items-center">
+                    <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
+                    <h1 class="text-2xl tracking-widest futura-bold" style="color:#6AAAEA">Maaf Tidak Dapat Hadir</h1>
+                    <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
+                </div>
+                <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
+                    <div class="ovale--xl"></div>
+                    <div class="w-9/12 mt-12 text-left flex flex-col items-center">
+                        <div class="w-full">
+                            <h5>Tinggalkan Pesan</h5>
+                            <textarea name="text" cols="40" rows="7" class="mt-2 rounded-sm"></textarea>
+                        </div>
+                        <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)" onclick="">
+                            Kirim
+                        </div>
                     </div>
-                    <div class="w-full">
-                        <h5>Tinggalkan Pesan</h5>
-                        <textarea name="text" cols="40" rows="5" class="mt-2 rounded-sm"></textarea>
+                </div>
+            </div>
+            <div id="barcodeModal" class="h-screen w-full text-center pt-12 flex items-center flex-col relative" style="display: none;background-color: #fafafa;z-index: 2;">
+                <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);left: 50%;transform: translate(-50%, 0);z-index:-1;" alt="">
+                <div id="closeBarcode" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
+                <div class="text-center mt-4 futura-md" style="color: #fafafa;">
+                    <h5 class="text-3xl tracking-widest">RSVP</h5>
+                    <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
+                    <h5 class="text-base tracking-widest">{{ name }}</h5>
+                    <p class="w-9/12 pt-2 md:w-3/12 mx-auto text-xs SEGOEUI">Terimakasih telah melakukan konfirmasi kehadiran, Download QR Code di bawah ini sebagai akses untuk masuk ke lokasi acara pernikahan.</p>
+                </div>
+                <div class="mt-10 pt-6 w-full text-center tracking-widest relative">
+                    <div class="black-50 w-full md:hidden absolute top-0" style="height: 85%;z-index: -1;"></div>
+                    <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
+                    <h3 class="mt-2 text-2xl DancingScript" style="color: #fafafa;">Evika & Andrian</h3>
+                    <img src="https://dummyimage.com/250x250/000/fff.jpg" class="mx-auto" alt="">
+                    <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
+                        Download QR Code
                     </div>
-                    <div id="barcodeBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
-                        Kirim
+                    <div class="rounded-full py-2 px-10 mt-6 mx-auto w-max border-2 border-white text-center cursor-pointer" style="color:#fafafa;">
+                        Ubah Konfirmasi
+                    </div>
+                </div>
+            </div>
+            <div id="tidakhadirModal" class="h-screen w-full md:bg-white text-center pt-12 flex items-center flex-col relative" style="display: none;z-index: 2;">
+                <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);left: 50%;transform: translate(-50%, 0);z-index:-1;" alt="">
+                <div id="closeTidakhadir" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
+                <div class="text-center mt-4 futura-md" style="color: #fafafa;">
+                    <h5 class="text-3xl tracking-widest">RSVP</h5>
+                    <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
+                    <h5 class="text-base tracking-widest">{{ name }}</h5>
+                    <p class="w-9/12 pt-2 mx-auto text-xs SEGOEUI">Kami Telah menerima konfirmasi KETIDAK HADIRAN anda untuk acara ini.</p>
+                </div>
+                <div class="mt-10 pt-6 w-full text-center tracking-widest relative">
+                    <div class="black-50 w-full md:hidden absolute top-0" style="height: 110%;z-index: -1;"></div>
+                    <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
+                    <h3 class="mt-2 text-3xl DancingScript" style="color: #fafafa;">Evika & Andrian</h3>
+                    <h5 class="mt-8 text-sm futura-md" style="color:#fafafa">Sabtu, 14 Maret 2021</h5>
+                    <h5 class="text-sm futura-md" style="color:#fafafa">19.00 - 21.00 WIB</h5>
+                    <h5 class="text-sm futura-md" style="color:#fafafa">Hotel Pesona - Semarang</h5>
+                    <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
+                        Ubah Konfirmasi
                     </div>
                 </div>
             </div>
         </div>
-        <div id="tidakModal" class="h-screen w-full text-center pt-8" style="display: none;background-color: #fafafa;z-index: 2;">
-            <h5 class="text-base text-base DancingScript">The Wedding of</h5>
-            <h3 class="mt-2 text-3xl DancingScript">Evika & Andrian</h3>
-            <div class="my-6 flex justify-between items-center">
-                <div class="h-1 w-12" style="background-color: #C7CEBE;"></div>
-                <h1 class="text-2xl tracking-widest futura-bold" style="color:#6AAAEA">Maaf Tidak Dapat Hadir</h1>
-                <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
-            </div>
-            <div class="mt-18 mb-16 cl-dark-cream futura-md flex justify-center items-center relative">
-                <div class="ovale--xl"></div>
-                <div class="w-9/12 mt-12 text-left flex flex-col items-center">
-                    <div class="w-full">
-                        <h5>Tinggalkan Pesan</h5>
-                        <textarea name="text" cols="40" rows="7" class="mt-2 rounded-sm"></textarea>
-                    </div>
-                    <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)" onclick="">
-                        Kirim
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="barcodeModal" class="h-screen w-full text-center pt-12 flex items-center flex-col relative" style="display: none;z-index: 2;">
-            <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);z-index:-1;" alt="">
-            <div class="text-center futura-md" style="color: #fafafa;">
-                <h5 class="text-3xl tracking-widest">RSVP</h5>
-                <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
-                <h5 class="text-base tracking-widest">{{ name }}</h5>
-                <p class="w-9/12 pt-2 mx-auto text-xs SEGOEUI">Terimakasih telah melakukan konfirmasi kehadiran, Download QR Code di bawah ini sebagai akses untuk masuk ke lokasi acara pernikahan.</p>
-            </div>
-            <div class="mt-10 pt-6 w-full text-center tracking-widest relative">
-                <div class="black-50 w-full absolute top-0" style="height: 85%;z-index: -1;"></div>
-                <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
-                <h3 class="mt-2 text-2xl DancingScript" style="color: #fafafa;">Evika & Andrian</h3>
-                <img src="https://dummyimage.com/300x300/000/fff.jpg" class="mx-auto" alt="">
-                <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
-                    Download QR Code
-                </div>
-                <div class="rounded-full py-2 px-10 mt-6 mx-auto w-max border-2 border-white text-center cursor-pointer" style="color:#fafafa;">
-                    Ubah Konfirmasi
-                </div>
-            </div>
-        </div>
-        <div id="tidakhadirModal" class="h-screen w-full text-center pt-12 flex items-center flex-col relative" style="display: none;z-index: 2;">
-            <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);z-index:-1;" alt="">
-            <div class="text-center futura-md" style="color: #fafafa;">
-                <h5 class="text-3xl tracking-widest">RSVP</h5>
-                <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
-                <h5 class="text-base tracking-widest">{{ name }}</h5>
-                <p class="w-9/12 pt-2 mx-auto text-xs SEGOEUI">Kami Telah menerima konfirmasi KETIDAK HADIRAN anda untuk acara ini.</p>
-            </div>
-            <div class="mt-10 pt-6 w-full text-center tracking-widest relative">
-                <div class="black-50 w-full absolute top-0" style="height: 110%;z-index: -1;"></div>
-                <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
-                <h3 class="mt-2 text-3xl DancingScript" style="color: #fafafa;">Evika & Andrian</h3>
-                <h5 class="mt-8 text-sm futura-md" style="color:#fafafa">Sabtu, 14 Maret 2021</h5>
-                <h5 class="text-sm futura-md" style="color:#fafafa">19.00 - 21.00 WIB</h5>
-                <h5 class="text-sm futura-md" style="color:#fafafa">Hotel Pesona - Semarang</h5>
-                <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
-                    Ubah Konfirmasi
-                </div>
-            </div>
-        </div>
-    </div>
     <section class="throttle-container" style="display: none;">
         <p>
             Scroll event is called <span id="scroll-count">0</span> times
@@ -783,35 +798,6 @@
             document.getElementsByClassName("landing-page")[0].style.display = 'none';
             document.getElementsByClassName("mainContent")[0].style.display = 'block';
         }
-  </script>
-  <script>
-      // JAVASCRIPT FOR SLIDER
-    var slideIndex = 1;
-    showSlides(slideIndex);
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}    
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-    }
   </script>
   <script>
     // JAVASCRIPT FOR SLIDER 2
@@ -980,7 +966,7 @@
         var btn = document.getElementById("hadirBtn");
         
         // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
+        var closeHadir = document.getElementById("closeHadir");
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
@@ -989,9 +975,10 @@
         }
         
         // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //   modalHadir.style.display = "none";
-        // }
+            closeHadir.onclick = function() {
+            modalHadir.style.display = "none";
+            // console.log("span");
+        }
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
@@ -1010,7 +997,7 @@
         var btn = document.getElementById("tidakBtn");
         
         // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
+        var closeTidak = document.getElementById("closeTidak");
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
@@ -1019,9 +1006,9 @@
         }
         
         // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //   modal.style.display = "none";
-        // }
+        closeTidak.onclick = function() {
+            modalTidak.style.display = "none";
+        }
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
@@ -1041,7 +1028,7 @@
         var btn = document.getElementById("barcodeBtn");
         
         // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
+        var closeBarcode = document.getElementById("closeBarcode");
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
@@ -1050,9 +1037,9 @@
         }
         
         // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //   modal.style.display = "none";
-        // }
+        closeBarcode.onclick = function() {
+            modalBarcode.style.display = "none";
+        }
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
@@ -1072,7 +1059,7 @@
         var btn = document.getElementById("tidakhadirBtn");
         
         // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
+        var closeTidakhadir = document.getElementById("closeTidakhadir");
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
@@ -1081,9 +1068,9 @@
         }
         
         // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //   modal.style.display = "none";
-        // }
+        closeTidakhadir.onclick = function() {
+            tidakhadirModal.style.display = "none";
+        }
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
