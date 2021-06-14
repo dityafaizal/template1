@@ -79,6 +79,22 @@
     .cl-dark-cream {
         color: #7B4F06;
     }
+    .ovale {
+        position: relative;
+        background-image: linear-gradient(#FCF8F0, #FCF8F0);
+        border-top-left-radius: 50% 10%;
+        border-top-right-radius: 50% 10%;
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
+    }
+    .ovale--long {
+        position: relative;
+        background-image: linear-gradient(#FCF8F0, #FCF8F0);
+        border-top-left-radius: 50% 5%;
+        border-top-right-radius: 50% 5%;
+        border-bottom-left-radius: 50% 5%;
+        border-bottom-right-radius: 50% 5%;
+    }
     .ovale--md {
         width: 800px;
         height: 470px;
@@ -333,52 +349,49 @@
     <!-- <div class="bg-white h-screen w-full fixed top-0" style="z-index: -3;"></div> -->
     <!-- landing page -->
     <div class="landing-page h-screen pt-40 flex items-center flex-col relative">
-        <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen top-0" style="z-index:-1;" alt="">
+        <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen top-0" style="filter:brightness(80%);z-index:-1;" alt="">
         <div class="text-center tracking-widest" style="color: #fafafa;">
-            <h5 class="text-base futura-md">You're Invited to</h5>
-            <h5 class="text-base futura-md">The Wedding of</h5>
-            <h3 class="mt-6 text-5xl Bestermind">Evika & Andrian</h3>
+            <h5 class="text-base SEGOEUI">You're Invited to</h5>
+            <h5 class="text-base SEGOEUI">The Wedding of</h5>
+            <h3 class="mt-10 text-5xl Bestermind">Evika & Andrian</h3>
         </div>
-        <div class="mt-10 text-center tracking-widest">
+        <div class="mt-12 text-center tracking-widest">
             <h5 class="text-base futura-md" style="color:#fafafa">Sabtu, 14 Maret 2021</h5>
             <h5 class="text-base futura-md" style="color:#fafafa">19.00 - 21.00 WIB</h5>
             <h5 class="text-base futura-md" style="color:#fafafa">Hotel Pesona - Semarang</h5>
         </div>
-        <div class="rounded-full py-2 px-8 mt-36 w-6/12 text-center cursor-pointer" style="color:#6A4509; background-color: #F9F3E7" onclick="openInv()">
+        <div class="mt-12 text-center" style="z-index:2;">
+            <h5 class="text-base SEGOEUI" style="color:#fafafa">Kepada Yth Bpk/Ibu/Sdra/i:</h5>
+            <h5 class="mt-4 text-base SEGOEUI" style="color:#fafafa">Budi Santoso Dan Keluarga</h5>
+        </div>
+        <div class="rounded-full py-2 px-8 mt-16 w-6/12 text-center cursor-pointer" style="color:#6A4509; background-color: #F9F3E7" onclick="openInv()">
             Open Invitation
         </div>
     </div>
     <!-- landing page -->
     <div class="mainContent content bg-white" style="display: none;">
-        <div class="h-screen pt-40 flex items-center flex-col relative">
+        <div class="h-screen pt-40 flex items-center flex-col relative" style="z-index: 2;">
             <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen top-0" alt="">
             <div class="text-center" style="color: #fafafa;z-index:2;">
                 <h5 class="text-lg futura-md">The Wedding of</h5>
                 <h3 class="text-5xl pt-12 Bestermind">Evika & Andrian</h3>
             </div>
-            <div class="mt-20 text-center" style="z-index:2;">
-                <h5 class="text-lg futura-md" style="color:#fafafa">Kepada</h5>
-                <h5 class="text-lg futura-md" style="color:#fafafa">Yth. Bpk / Ibu / Sdra / i</h5>
-                <h5 class="text-lg futura-md" style="color:#fafafa">{{ name }}</h5>
-                <h5 class="text-lg futura-md" style="color:#fafafa">{{ address }}</h5>
-            </div>
-            <div class="mt-52 w-12 relative">
+            <div class="mt-80 w-12 relative">
                 <img src="iconmonstr-arrow-31.svg" class="animateUpDown" alt="arrow down icon" style="transform: rotate(90deg);">
             </div>
         </div>
-        <div class="flex justify-between items-center flex-col relative">
-            <div class="ovale--md"></div>
-            <div class="pt-20 text-center w-9/12 js-scroll fade-in-bottom">
-                <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalanualaikum Warrahmatullah Wabarakatuh</h3>
+        <div class="mt-28 md:mt-12 flex justify-between items-center flex-col relative">
+            <!-- <div class="ovale--md" style="z-index: 1;"></div> -->
+            <div class="text-center ovale py-16 px-2 w-full flex flex-col items-center js-scroll fade-in-bottom" style="z-index: 1;">
+                <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalamualaikum Warrahmatullah Wabarakatuh</h3>
                 <h3 class="p-4 text-lg futura-md" style="color:#7B4F06">Bismillahirramanirrahim</h3>
-                <p class="text-sm futura-md" style="color:#7B4F06">"Dan diantara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenang dan tentram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir." (QS:. Ar-Rum: 21)</p>
+                <p class="text-sm futura-md md:w-9/12" style="color:#7B4F06">"Dan diantara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu merasa tenang dan tentram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir." (QS:. Ar-Rum: 21)</p>
             </div>
-
-            <div class="w-full absolute bottom-12">
-                <img src="MaskGroup2.png" class="relative halfcirc-img" style="z-index: -2;" alt="">
+            <div class="w-full -mt-20">
+                <img src="MaskGroup2.png" class="relative halfcirc-img" style="" alt="">
             </div>
         </div>
-        <div class="mt-40 md:mt-60">
+        <div class="mt-12 md:mt-22">
             <div class="py-12 text-center flex justify-center relative">
                 <div class="h-1 w-12 absolute top-0 left-0" style="background-color: #C7CEBE;"></div>
                 <p class="w-9/12 js-scroll fade-in-bottom">
@@ -420,11 +433,11 @@
                 </div>
             </div>
             </div>
-            <div class="mt-16 relative">
-                <div class="ovale--2big"></div>
+            <div class="ovale--long py-16 mt-16 relative">
+                <!-- <div class="ovale--2big"></div> -->
                 <div class="flex items-center flex-col">
                     <div class="w-9/12 text-center">
-                        <p class="pt-16 cl-dark-cream SEGOEUI js-scroll fade-in-bottom">
+                        <p class="cl-dark-cream SEGOEUI js-scroll fade-in-bottom">
                             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir di acara Resepsi dan memberikan doa restu kepada kami.
                         </p>
                         <div class="pt-16 cl-dark-cream font-bold flex items-center flex-col js-scroll fade-in-bottom">
@@ -454,13 +467,13 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-36 flex items-center flex-col">
+            <div class="mt-16 flex items-center flex-col">
                 <div class="w-9/12 text-center js-scroll fade-in-bottom">
                     <p class="cl-dark-cream SEGOEUI">
                         Prosesi Akad hanya dihadiri keluarga dan kerabat terdekat. <br><br> Bagi yang berhalangan hadir dapat menyaksikan jalannya prosesi akad dan resepsi melalui live streaming dengan alamat tautan sebagai berikut:
                     </p>
                     <div class="rounded-full py-2 px-8 mt-16" style="background-color: rgba(106, 170, 234, .15);">
-                        <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);">https://linktr.ee/WeddingDisaNajib</a>
+                        <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);word-wrap: break-word;">https://linktr.ee/WeddingDisaNajib</a>
                     </div>
                 </div>
             </div>
@@ -475,23 +488,23 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-18 mb-16 cl-dark-cream futura-md relative" style="">
-                <div class="ovale--2big"></div>
+            <div class="ovale--long py-16 -mt-16 mb-16 cl-dark-cream futura-md relative" style="">
+                <!-- <div class="ovale--2big"></div> -->
                 <div class="flex items-center flex-col js-scroll fade-in-bottom">
                     <h1 class="pt-20 text-5xl cl-dark-cream tracking-widest Bestermind">RSVP</h1>
                     <h5 class="py-4 text-lg">Yth. Bpk/Ibu/Sdra/i</h5>
                     <h3 class="text-lg">{{ name }}</h3>
-                    <p class="py-4 md:w-8/12 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
+                    <p class="py-4 px-4 md:w-8/12 text-center">Sehubungan dengan adanya pandemi Covid-19, konfirmasi kehadiran acara dengan cara mengklik tombol dibawah ini sebelum:</p>
                     <h3 class="text-lg font-bold">Pukul 21.00 - 10 Maret 2021</h3>
-                    <h5 class="py-4">guna mendukung protokol kesehatan pemerintah</h5>
-                    <form name="rsvpForm" class="w-9/12 mt-12 text-left flex flex-col items-start">
+                    <h5 class="py-4 px-4 text-center">guna mendukung protokol kesehatan pemerintah</h5>
+                    <form name="rsvpForm" class="w-9/12 mt-4 text-left flex flex-col items-start">
                         <div class="w-full my-4">
                             <h5>Nama</h5>
                             <input type="text" class="w-full h-10 mt-2 rounded-sm" style="background-color:#fff">
                         </div>
                         <div class="w-full">
                             <h5>Alamat / Instansi</h5>
-                            <textarea name="text" cols="40" rows="5" class="mt-2 md:w-full rounded-sm" style="background-color:#fff"></textarea>
+                            <textarea name="text" cols="40" rows="2" class="mt-2 w-full rounded-sm"></textarea>
                         </div>
                         <fieldset class="mt-3">
                             <legend>Apakah Anda Akan Hadir?</legend>
@@ -514,11 +527,15 @@
                             <div class="w-full">
                                 <h5>Jumlah Tamu</h5>
                                 <select name="tamu" id="tamu" class="w-full h-10">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                                    <option value="1">1 orang</option>
+                                    <option value="2">2 orang</option>
+                                    <option value="3">3 orang</option>
+                                    <option value="4">4 orang</option>
                                 </select>
+                            </div>
+                            <div class="w-full mt-4">
+                                <h5>Tinggalkan Pesan</h5>
+                                <textarea name="text" cols="40" rows="4" class="mt-2 w-full rounded-sm"></textarea>
                             </div>
                             <div id="barcodeBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)">
                                 Kirim
@@ -530,7 +547,7 @@
                         <div id="tidakhadirForm" class="w-full mt-4 text-left flex flex-col items-center" style="display: none;">
                             <div class="w-full">
                                 <h5>Tinggalkan Pesan</h5>
-                                <textarea name="text" cols="40" rows="7" class="mt-2 w-full rounded-sm"></textarea>
+                                <textarea name="text" cols="40" rows="4" class="mt-2 w-full rounded-sm"></textarea>
                             </div>
                             <div id="tidakhadirBtn" class="rounded-full py-2 px-8 mt-12 w-full text-center cursor-pointer" style="color:#F9F3E7; background-color: rgba(123, 79, 6, .5)" onclick="">
                                 Kirim
@@ -785,44 +802,34 @@
                     </div>
                 </div>
             </div>
-            <div id="barcodeModal" class="h-screen w-full text-center pt-12 flex items-center flex-col relative" style="display: none;background-color: #fafafa;z-index: 2;">
-                <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);left: 50%;transform: translate(-50%, 0);z-index:-1;" alt="">
+            <div id="barcodeModal" class="h-screen w-full text-center py-12 flex items-center flex-col relative overflow-scroll" style="display: none;background-color: #FCF8F0;z-index: 2;">
                 <div id="closeBarcode" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
-                <div class="text-center mt-4 futura-md" style="color: #fafafa;">
-                    <h5 class="text-3xl tracking-widest">RSVP</h5>
-                    <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
-                    <h5 class="text-base tracking-widest">{{ name }}</h5>
-                    <p class="w-9/12 pt-2 md:w-3/12 mx-auto text-xs SEGOEUI">Terimakasih telah melakukan konfirmasi kehadiran, Download QR Code di bawah ini sebagai akses untuk masuk ke lokasi acara pernikahan.</p>
+                <div class="text-center mt-4 futura-md cl-dark-cream" style="">
+                    <h5 class="text-2xl Bestermind" style="">The Wedding of</h5>
+                    <h3 class="my-4 text-4xl Bestermind" style="">Evika & Andrian</h3>
+                    <p class="w-9/12 pt-2 md:w-3/12 mx-auto text-xs SEGOEUI">*mohon tunjukan QR Code dibawah ini, Sebagai akses masuk pengganti isi buku tamu</p>
                 </div>
                 <div class="mt-6 w-full text-center tracking-widest relative">
-                    <div class="black-50 w-full md:hidden absolute top-0" style="height: 85%;z-index: -1;"></div>
-                    <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
-                    <h3 class="my-2 text-2xl Bestermind" style="color: #fafafa;">Evika & Andrian</h3>
                     <img src="https://dummyimage.com/250x250/000/fff.jpg" class="mx-auto" alt="">
+                    <h5 class="pt-2 text-xs cl-dark-cream tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
+                    <h5 class="py-4 text-base cl-dark-cream tracking-widest">Budi Santoso</h5>
+                    <h5 class="SEGOEUI">Sabtu, 14 Maret 2021</h5>
+                    <h5 class="SEGOEUI">Pukul: 09.00 - 11.00 WIB</h5>
+                    <h5 class="SEGOEUI">Pesona Alam Residence Semarang Jl. Perumahan baru di semarang</h5>
                     <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
                         Download QR Code
                     </div>
-                    <div class="rounded-full py-2 px-10 mt-6 mx-auto w-max border-2 border-white text-center cursor-pointer" style="color:#fafafa;">
+                    <div class="rounded-full py-2 px-10 mt-6 mx-auto w-max border-2 border-white cl-dark-cream text-center cursor-pointer" style="border:2px solid #7B4F06">
                         Ubah Konfirmasi
                     </div>
                 </div>
             </div>
-            <div id="tidakhadirModal" class="h-screen w-full md:bg-white text-center pt-12 flex items-center flex-col relative" style="display: none;z-index: 2;">
-                <img src="MaskGroup2.png" class="absolute top-0" style="filter:brightness(50%);left: 50%;transform: translate(-50%, 0);z-index:-1;" alt="">
+            <div id="tidakhadirModal" class="h-screen w-full py-12 text-center flex items-center flex-col relative overflow-scroll" style="display: none;background-color: #FCF8F0;z-index: 2;">
                 <div id="closeTidakhadir" class="close rounded-full w-6 h-6 mx-auto text-white text-center" style="background-color: #7B4F06;">&times;</div>
-                <div class="text-center mt-4 futura-md" style="color: #fafafa;">
-                    <h5 class="text-3xl tracking-widest">RSVP</h5>
-                    <h5 class="py-2 text-xs tracking-widest">Yth. Bpk / Ibu / Sdra / i</h5>
-                    <h5 class="text-base tracking-widest">{{ name }}</h5>
-                    <p class="w-9/12 pt-2 mx-auto text-xs SEGOEUI">Kami Telah menerima konfirmasi KETIDAK HADIRAN anda untuk acara ini.</p>
-                </div>
-                <div class="mt-10 pt-6 w-full text-center tracking-widest relative">
-                    <div class="black-50 w-full md:hidden absolute top-0" style="height: 110%;z-index: -1;"></div>
-                    <h5 class="text-sm futura-md" style="color: #fafafa;">The Wedding of</h5>
-                    <h3 class="mt-2 text-3xl Bestermind" style="color: #fafafa;">Evika & Andrian</h3>
-                    <h5 class="mt-8 text-sm futura-md" style="color:#fafafa">Sabtu, 14 Maret 2021</h5>
-                    <h5 class="text-sm futura-md" style="color:#fafafa">19.00 - 21.00 WIB</h5>
-                    <h5 class="text-sm futura-md" style="color:#fafafa">Hotel Pesona - Semarang</h5>
+                <div class="mt-44 text-center futura-md cl-dark-cream" style="">
+                    <h5 class="text-2xl Bestermind" style="">The Wedding of</h5>
+                    <h3 class="my-4 text-4xl Bestermind" style="">Evika & Andrian</h3>
+                    <p class="w-9/12 mx-auto text-base text-left SEGOEUI">Terima<br> kasih atas konfirmasi KETIDAK HADIRAN ANDA. Kami memohon doa dan restu untuk kelancaran pernikahan kami.</p>
                     <div class="rounded-full py-2 px-8 mt-12 mx-auto w-max shadow-md text-center cursor-pointer" style="color:#fff; background-color: #6AAAEA;">
                         Ubah Konfirmasi
                     </div>
@@ -1077,7 +1084,7 @@
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
-            modalBarcode.style.display = "block";
+            modalBarcode.style.display = "flex";
             modalHadir.style.display = "none";
         }
         
@@ -1108,7 +1115,7 @@
         
         // When the user clicks the button, open the modal 
         btn.onclick = function() {
-            tidakhadirModal.style.display = "block";
+            tidakhadirModal.style.display = "flex";
             modalTidak.style.display = "none";
         }
         
