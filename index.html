@@ -403,6 +403,10 @@
     </div>
     <!-- landing page -->
     <div class="mainContent content bg-white" style="display: none;">
+        <div class="fixed md:top-10 md:right-10 top-6 right-4" style="z-index: 999;">
+            <img src="iconmonstr-media-control-48.svg" id="playMusic" class="cursor-pointer rounded-full cl-cream w-10 h-10 p-2" style="display: none;" onclick="playMsc()" alt="iconmonstr-media-control-48">
+            <img src="iconmonstr-media-control-49.svg" id="pauseMusic" class="cursor-pointer rounded-full cl-cream w-10 h-10 p-2" onclick="pauseMsc()" alt="iconmonstr-media-control-49">
+        </div>
         <div class="h-screen pt-44 lg:pt-72 flex items-center flex-col relative" style="z-index: 2;">
             <img src="MaskGroup2.png" class="absolute md:w-full md:h-screen lg:hidden top-0" style="filter:brightness(80%);z-index:-1;" alt="">
             <img src="MaskGroup2@169.jpg" class="absolute h-screen md:w-full hidden lg:block md:hidden top-0" style="filter:brightness(80%);z-index:-1;" alt="">
@@ -414,7 +418,7 @@
                 <img src="iconmonstr-arrow-31.svg" class="animateUpDown" alt="arrow down icon" style="transform: rotate(90deg);">
             </div>
         </div>
-        <div class="mt-28 md:mt-0 flex justify-between items-center flex-col relative">
+        <div class="flex justify-between items-center flex-col relative" style="background: #fcf8f0;">
             <!-- <div class="ovale--md" style="z-index: 1;"></div> -->
             <div class="text-center ovale py-16 px-2 w-full flex flex-col items-center js-scroll fade-in-bottom" style="z-index: 1;">
                 <h3 class="text-2xl DancingScript" style="color:#7B4F06">Assalamualaikum Warrahmatullah Wabarakatuh</h3>
@@ -504,12 +508,12 @@
             </div>
             <div class="mt-16 flex items-center flex-col">
                 <div class="w-9/12 text-center js-scroll fade-in-bottom">
-                    <p class="cl-dark-cream lg:text-xl SEGOEUI">
+                    <p class="mb-16 cl-dark-cream lg:text-xl SEGOEUI">
                         Prosesi Akad hanya dihadiri keluarga dan kerabat terdekat. <br><br> Bagi yang berhalangan hadir dapat menyaksikan jalannya prosesi akad dan resepsi melalui live streaming dengan alamat tautan sebagai berikut:
                     </p>
-                    <div class="md:w-max md:mx-auto rounded-full py-2 px-8 mt-16" style="background-color: rgba(106, 170, 234, .15);">
-                        <a href="https://linktr.ee/WeddingDisaNajib" class="SEGOEUI" style="color: rgba(106, 170, 234, 1);word-wrap: break-word;">https://linktr.ee/WeddingDisaNajib</a>
-                    </div>
+                    <a href="https://linktr.ee/WeddingDisaNajib" target="_blank" class="md:w-max md:mx-auto rounded-full py-2 px-8" style="background-color: rgba(106, 170, 234, .15);">
+                        <span class="SEGOEUI" style="color: rgba(106, 170, 234, 1);word-wrap: break-word;">https://linktr.ee/WeddingDisaNajib</span>
+                    </a>
                 </div>
             </div>
             <div class="my-16 flex items-center flex-col relative" style="z-index: 2;">
@@ -558,7 +562,8 @@
                         <div id="hadirForm" class="w-full mt-4 text-left flex flex-col items-center" style="display: none;">
                             <div class="w-full my-4">
                                 <h5>No Whatsapp</h5>
-                                <input type="text" class="w-full h-10 mt-2 rounded-sm">
+                                <input type="number" name="whatsapp" onkeypress="return isNumberKey(event)" class="w-full h-10 mt-2 rounded-sm">
+                                <!-- <input type="number" name="whatsapp" onkeypress="return isNumberKey(event)" />  -->
                             </div>
                             <div class="w-full">
                                 <h5>Jumlah Tamu</h5>
@@ -713,29 +718,29 @@
                     <div class="h-1 w-12" style="background-color: #E1D5BE;"></div>
                 </div>
                 <div class="slideshow-container">
-                    <div class="mySlides2 fade">
-                    <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
+                    <div class="mySlides fade">
+                        <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
                     </div>
                     
-                    <div class="mySlides2 fade">
-                    <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
+                    <div class="mySlides fade">
+                        <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
                     </div>
                     
-                    <div class="mySlides2 fade">
-                    <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
+                    <div class="mySlides fade">
+                        <img src="https://dummyimage.com/600x400/000/fff.jpg" style="width:100%">
                     </div>
                     
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
                     
                 </div>
                 <br>
                 
-                <div class="w-full absolute bottom-20" style="text-align:center">
+                <!-- <div class="w-full absolute bottom-20" style="text-align:center">
                     <span class="dot2" onclick="currentSlide(1)"></span> 
                     <span class="dot2" onclick="currentSlide(2)"></span> 
                     <span class="dot2" onclick="currentSlide(3)"></span> 
-                </div>
+                </div> -->
                 <span class="circle--half"></span>
             </div>
             <div class="my-16">
@@ -752,11 +757,11 @@
                     </div>
                     <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
                         <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">2</h3>
-                        <h3 class="text-xl">Pakai Masker</h3>
+                        <h3 class="text-xl">Tidak Pakai Masker</h3>
                     </div>
                     <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
                         <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">3</h3>
-                        <h3 class="text-xl">Pakai Masker</h3>
+                        <h3 class="text-xl">Pakai Masker Tidak Pakai Masker</h3>
                     </div>
                     <div class="my-3 flex justify-center items-center SEGOEUI font-bold">
                         <h3 class="rounded-full w-6 h-6 mr-2 text-center" style="background-color: #7B4F06;color: #F9F3E7;">4</h3>
@@ -778,7 +783,9 @@
             </div>
             <div class="pb-8 mx-auto text-center relative">
                 <h5 class="text-xs font-bold SEGOEUI">made with ♥️ by</h5>
-                <img src="DGSIGNID1.png" class="mx-auto" alt="DGSIGNID1">
+                <a href="https://instagram.com/dgsign.id_bukutamudigital?igshid=1ctl0cjcx34zk" target="_blank">
+                    <img src="DGSIGNID1.png" class="mx-auto" alt="DGSIGNID1">
+                </a>
                 <span class="text-xs SEGOEUI">Music by</span>
                 <span class="text-xs font-bold SEGOEUI">Cendol Dawet - Didi Kempot</span>
             </div>
@@ -807,7 +814,7 @@
                         </div>
                         <div class="w-full md:w-3/6 my-4">
                             <h5>No Whatsapp</h5>
-                            <input type="text" class="w-full h-10 mt-2 rounded-sm">
+                            <input type="number" class="w-full h-10 mt-2 rounded-sm">
                         </div>
                         <div class="w-full md:w-3/6">
                             <h5>Tinggalkan Pesan</h5>
@@ -906,7 +913,22 @@
         }
   </script>
   <script>
-    // JAVASCRIPT FOR SLIDER 2
+    
+      function playMsc() {
+        var x = document.getElementById("myAudio"); 
+        x.play();
+        document.getElementById("playMusic").style.display = 'none';
+        document.getElementById("pauseMusic").style.display = 'block';
+      }
+      function pauseMsc() {
+        var x = document.getElementById("myAudio"); 
+        x.pause();
+        document.getElementById("pauseMusic").style.display = 'none';
+        document.getElementById("playMusic").style.display = 'block';
+      }
+  </script>
+
+  <!-- <script>
     var slideIndex = 1;
     showSlides(slideIndex);
     
@@ -933,11 +955,37 @@
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex-1].className += " active";
     }
+</script> -->
+
+<script>
+    var myIndex = 0;
+    carousel();
+    
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 3000); // Change image every 2 seconds
+    }
+</script>
+
+    <script>
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }    
     </script>
 
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("Jun 18, 2021 15:37:25").getTime();
+        var countDownDate = new Date("Jun 30, 2021 15:37:25").getTime();
         
         // Update the count down every 1 second
         var x = setInterval(function() {
